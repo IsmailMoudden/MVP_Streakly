@@ -15,7 +15,10 @@ class StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Theme.of(context).cardColor, // Secondary Background
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -23,26 +26,26 @@ class StatCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
+              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                    fontSize: 14,
+                    color: Theme.of(context).accentColor, // Gold-Orange
+                  ),
             ),
             const SizedBox(height: 8),
             Text(
               value,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             const SizedBox(height: 4),
             Text(
               subtitle,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey.shade400,
-              ),
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    fontSize: 12,
+                    color: Colors.grey.shade400,
+                  ),
             ),
           ],
         ),

@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:streakly_app/widgets/standard_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+  Widget _buildStatisticItem(String label, String value) {
+    return Column(
+      children: [
+        Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xFF2D3142))),
+        const SizedBox(height: 4),
+        Text(label, style: const TextStyle(fontSize: 14, color: Color(0xFF7D8597))),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.pushNamed(context, '/settings');
-            },
-          ),
-        ],
+        title: const Text('Profile', style: TextStyle(color: Color(0xFF2D3142))),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
             const CircleAvatar(
@@ -47,25 +47,27 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildStatisticItem('Challenges', '12'),
-                Container(
-                  height: 40,
-                  width: 1,
-                  color: Colors.grey.shade800,
-                  margin: const EdgeInsets.symmetric(horizontal: 24),
-                ),
-                _buildStatisticItem('Streaks', '156 days'),
-                Container(
-                  height: 40,
-                  width: 1,
-                  color: Colors.grey.shade800,
-                  margin: const EdgeInsets.symmetric(horizontal: 24),
-                ),
-                _buildStatisticItem('Friends', '24'),
-              ],
+            StandardCard(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildStatisticItem('Challenges', '12'),
+                  Container(
+                    height: 40,
+                    width: 1,
+                    color: Colors.grey.shade800,
+                    margin: const EdgeInsets.symmetric(horizontal: 24),
+                  ),
+                  _buildStatisticItem('Streaks', '156 days'),
+                  Container(
+                    height: 40,
+                    width: 1,
+                    color: Colors.grey.shade800,
+                    margin: const EdgeInsets.symmetric(horizontal: 24),
+                  ),
+                  _buildStatisticItem('Friends', '24'),
+                ],
+              ),
             ),
             const SizedBox(height: 32),
             Padding(
@@ -165,28 +167,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatisticItem(String label, String value) {
-    return Column(
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey.shade400,
-          ),
-        ),
-      ],
-    );
-  }
-  
   Widget _buildAchievementsList() {
     return Container(
       height: 100,

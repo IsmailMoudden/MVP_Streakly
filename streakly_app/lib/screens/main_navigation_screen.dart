@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'stats_screen.dart';
 import 'challenges_screen.dart';
+import '../widgets/gradient_flame_icon.dart'; // Import the flame icon widget
 
 class MainNavigationScreen extends StatefulWidget {
   final int initialIndex;
-  
+
   const MainNavigationScreen({Key? key, required this.initialIndex}) : super(key: key);
 
   @override
@@ -14,7 +15,7 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   late int _selectedIndex;
-  
+
   @override
   void initState() {
     super.initState();
@@ -36,9 +37,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.insert_chart),
             label: 'Stats',
@@ -52,8 +56,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             label: 'Challenges',
           ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
     );
   }

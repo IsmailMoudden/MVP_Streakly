@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -6,11 +7,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Row(
           children: [
-            Icon(Icons.local_fire_department, color: Colors.orange.shade300),
+            Icon(Icons.local_fire_department, color: Colors.orange.shade400),
             const SizedBox(width: 8),
-            const Text('Streakly'),
+            const Text('Streakly', style: TextStyle(color: Color(0xFF2D3142))),
           ],
         ),
         centerTitle: false,
@@ -27,68 +29,63 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: const Color(0xFFFAFAFA),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Card(
-              color: Colors.grey.shade900,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Your Daily Activities',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
+            _buildCard(
+              context,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Your Daily Activities',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Color(0xFF2D3142),
                           ),
-                          SizedBox(height: 8),
-                          Text(
-                            '3/5 completed today',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '3/5 completed today',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFF7D8597),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const Icon(Icons.chevron_right),
-                  ],
-                ),
+                  ),
+                  const Icon(Icons.chevron_right, color: Color(0xFF2D3142)),
+                ],
               ),
             ),
             const SizedBox(height: 16),
             InkWell(
-              onTap: () {
-                _showNewChallengeModal(context);
-              },
-              child: Card(
-                color: Colors.grey.shade900,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      Icon(Icons.add_circle, color: Colors.orange.shade300),
-                      const SizedBox(width: 16),
-                      const Expanded(
-                        child: Text(
-                          'New Challenge',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+              onTap: () => _showNewChallengeModal(context),
+              child: _buildCard(
+                context,
+                child: Row(
+                  children: [
+                    Icon(Icons.add_circle, color: Colors.orange.shade400),
+                    const SizedBox(width: 16),
+                    const Expanded(
+                      child: Text(
+                        'New Challenge',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF2D3142),
                         ),
                       ),
-                      const Icon(Icons.chevron_right),
-                    ],
-                  ),
+                    ),
+                    const Icon(Icons.chevron_right, color: Color(0xFF2D3142)),
+                  ],
                 ),
               ),
             ),
@@ -98,32 +95,15 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFF2D3142),
               ),
             ),
             const SizedBox(height: 12),
-            _buildChallengeItem(
-              'Name',
-              'Drink water',
-              'Daily',
-              '8:00 pm',
-              0.7,
-            ),
+            _buildChallengeItem(context, 'Name', 'Drink water', 'Daily', '8:00 pm', 0.7),
             const SizedBox(height: 12),
-            _buildChallengeItem(
-              'Name',
-              'Meditation',
-              'Daily',
-              '7:00 am',
-              0.5,
-            ),
+            _buildChallengeItem(context, 'Name', 'Meditation', 'Daily', '7:00 am', 0.5),
             const SizedBox(height: 12),
-            _buildChallengeItem(
-              'Name',
-              'Read',
-              '20 pages',
-              '10:00 pm',
-              0.3,
-            ),
+            _buildChallengeItem(context, 'Name', 'Read', '20 pages', '10:00 pm', 0.3),
             const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,6 +113,7 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF2D3142),
                   ),
                 ),
                 TextButton(
@@ -142,47 +123,45 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            Card(
-              color: Colors.grey.shade900,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Morning Run',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+            _buildCard(
+              context,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Morning Run',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Color(0xFF2D3142),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=12'),
+                        radius: 15,
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        const CircleAvatar(
-                          backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=12'),
-                          radius: 15,
+                      const SizedBox(width: 8),
+                      Text(
+                        'Joint Streak with Sarah',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey.shade600,
                         ),
-                        const SizedBox(width: 8),
-                        Text(
-                          'Joint Streak with Sarah',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey.shade400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      '5 day streak',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey.shade400,
                       ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    '5 day streak',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey.shade600,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -191,55 +170,67 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildChallengeItem(
-    String title,
-    String subtitle,
-    String frequency,
-    String time,
-    double progress,
-  ) {
-    return Card(
-      color: Colors.grey.shade900,
+  static Widget _buildCard(BuildContext context, {required Widget child}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0x33FF8C42),
+            offset: const Offset(0, 4),
+            blurRadius: 8,
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+        child: child,
+      ),
+    );
+  }
+
+  static Widget _buildChallengeItem(BuildContext context, String title, String subtitle, String frequency, String time, double progress) {
+    return _buildCard(
+      context,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Color(0xFF2D3142),
                 ),
-                Text(
-                  time,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              subtitle,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey.shade400,
               ),
+              Text(
+                time,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF7D8597),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            subtitle,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Color(0xFF7D8597),
             ),
-            const SizedBox(height: 12),
-            LinearProgressIndicator(
-              value: progress,
-              backgroundColor: Colors.grey.shade800,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.orange.shade300),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 12),
+          LinearProgressIndicator(
+            value: progress,
+            backgroundColor: const Color(0xFFEDEDED),
+            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFFF8C42)),
+          ),
+        ],
       ),
     );
   }
@@ -247,7 +238,7 @@ class HomeScreen extends StatelessWidget {
   void _showNewChallengeModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -263,6 +254,7 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
+                  color: Color(0xFF2D3142),
                 ),
               ),
               const SizedBox(height: 24),
@@ -270,7 +262,7 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Challenge Name',
                   filled: true,
-                  fillColor: Colors.grey.shade800,
+                  fillColor: const Color(0xFFF1F1F1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: BorderSide.none,
@@ -282,7 +274,7 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Description (Optional)',
                   filled: true,
-                  fillColor: Colors.grey.shade800,
+                  fillColor: const Color(0xFFF1F1F1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: BorderSide.none,
@@ -294,7 +286,7 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Frequency',
                   filled: true,
-                  fillColor: Colors.grey.shade800,
+                  fillColor: const Color(0xFFF1F1F1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: BorderSide.none,
@@ -315,7 +307,7 @@ class HomeScreen extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange.shade300,
+                  backgroundColor: const Color(0xFFFF8C42),
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
