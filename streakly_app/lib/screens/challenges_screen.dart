@@ -49,7 +49,7 @@ class ChallengesScreen extends StatelessWidget {
                     hintText: 'Search challenges',
                     prefixIcon: const Icon(Icons.search),
                     filled: true,
-                    fillColor: Colors.grey.shade900,
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                       borderSide: BorderSide.none,
@@ -83,7 +83,7 @@ class ChallengesScreen extends StatelessWidget {
 
   Widget _buildChallengeItem(String title, String status, String time) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       margin: const EdgeInsets.only(bottom: 12),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -91,7 +91,7 @@ class ChallengesScreen extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colors.orange.shade900.withOpacity(0.3),
+                color: Colors.orange.shade900.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               padding: const EdgeInsets.all(8),
@@ -113,7 +113,7 @@ class ChallengesScreen extends StatelessWidget {
                     status,
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.grey.shade400,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -123,7 +123,7 @@ class ChallengesScreen extends StatelessWidget {
               time,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey.shade400,
+                color: Colors.grey,
               ),
             ),
           ],

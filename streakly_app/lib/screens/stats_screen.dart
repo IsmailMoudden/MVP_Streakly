@@ -56,7 +56,7 @@ class StatsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Card(
-              color: Colors.grey.shade900,
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
@@ -99,7 +99,7 @@ class StatsScreen extends StatelessWidget {
 
   Widget _buildStatCard(String title, String value, String subtitle) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -136,7 +136,7 @@ class StatsScreen extends StatelessWidget {
 
   Widget _buildChallengeItem(String title, String status, String time) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(

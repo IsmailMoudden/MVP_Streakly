@@ -4,6 +4,7 @@ import 'screens/auth/sign_in_screen.dart';
 import 'screens/main_navigation_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/settings_screen.dart';
+import 'screens/auth/sign_up_screen.dart';
 
 class StreaklyApp extends StatelessWidget {
   const StreaklyApp({Key? key}) : super(key: key);
@@ -52,6 +53,7 @@ class StreaklyApp extends StatelessWidget {
       routes: {
         '/splash': (context) => const SplashScreen(),
         '/signin': (context) => const SignInScreen(),
+        '/signup': (context) => const SignUpScreen(),
         '/home': (context) => const MainNavigationScreen(initialIndex: 1),
         '/stats': (context) => const MainNavigationScreen(initialIndex: 0),
         '/challenges': (context) => const MainNavigationScreen(initialIndex: 2),

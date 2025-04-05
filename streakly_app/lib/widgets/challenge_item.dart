@@ -14,7 +14,7 @@ class ChallengeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       child: InkWell(
         onTap: onTap,
         child: Padding(

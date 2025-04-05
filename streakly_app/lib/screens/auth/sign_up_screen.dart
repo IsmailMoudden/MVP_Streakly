@@ -1,35 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:streakly_app/widgets/standard_card.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
-  void _handleSignIn(BuildContext context) {
+  void _handleSignUp(BuildContext context) {
+    
     Navigator.pushReplacementNamed(context, '/home');
   }
 
-  void _goToSignUp(BuildContext context) {
-    Navigator.pushReplacementNamed(context, '/signup');
+  void _goToSignIn(BuildContext context) {
+    Navigator.pushReplacementNamed(context, '/signin');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Using a white background for a clean look.
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text('Sign In', style: TextStyle(color: Color(0xFF2D3142))),
+        title: const Text('Sign Up', style: TextStyle(color: Color(0xFF2D3142))),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           child: StandardCard(
             backgroundColor: Colors.white,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Name input field
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Name',
+                    labelStyle: const TextStyle(color: Color(0xFF2D3142)),
+                    prefixIcon: Icon(Icons.person, color: Colors.orange.shade300),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                // Email input field
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Email',
@@ -38,6 +48,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12),
+                // Password input field
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -46,9 +57,20 @@ class SignInScreen extends StatelessWidget {
                     prefixIcon: Icon(Icons.lock, color: Colors.orange.shade300),
                   ),
                 ),
+                const SizedBox(height: 12),
+                // Confirm Password input field
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Confirm Password',
+                    labelStyle: const TextStyle(color: Color(0xFF2D3142)),
+                    prefixIcon: Icon(Icons.lock, color: Colors.orange.shade300),
+                  ),
+                ),
                 const SizedBox(height: 20),
+                // Sign Up button
                 ElevatedButton(
-                  onPressed: () => _handleSignIn(context),
+                  onPressed: () => _handleSignUp(context),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange.shade300,
                     minimumSize: const Size(double.infinity, 50),
@@ -56,13 +78,14 @@ class SignInScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text('Sign In'),
+                  child: const Text('Sign Up'),
                 ),
                 const SizedBox(height: 12),
+                // Navigation to Sign In if the user already has an account.
                 TextButton(
-                  onPressed: () => _goToSignUp(context),
+                  onPressed: () => _goToSignIn(context),
                   child: const Text(
-                    "Don't have an account? Sign Up",
+                    'Already have an account? Sign In',
                     style: TextStyle(color: Color(0xFF2D3142)),
                   ),
                 ),
