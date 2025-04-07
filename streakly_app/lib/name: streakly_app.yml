@@ -1,0 +1,4 @@
+name: streakly_app
+description: A Flutter application for tracking challenges and statistics.
+# Add this line:
+version: 1.0.0+1

@@ -5,6 +5,9 @@ import 'screens/main_navigation_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/auth/sign_up_screen.dart';
+import 'screens/social_screen.dart';
+import 'screens/streak_screen.dart';
+
 
 class StreaklyApp extends StatelessWidget {
   const StreaklyApp({Key? key}) : super(key: key);
@@ -18,7 +21,7 @@ class StreaklyApp extends StatelessWidget {
   brightness: Brightness.light,
   scaffoldBackgroundColor: const Color(0xFFFAFAFA), // Light beige
   primaryColor: const Color(0xFFFF8C42), // Soft orange
-  colorScheme: ColorScheme.light(
+  colorScheme: const ColorScheme.light(
     primary: Color(0xFFFF8C42), // Orange pastel
     secondary: Color(0xFFA0C4FF), // Light pastel blue
     background: Color(0xFFFAFAFA), // General background
@@ -46,7 +49,7 @@ class StreaklyApp extends StatelessWidget {
     unselectedItemColor: Color(0xFF7D8597), // Light grey
   ),
   progressIndicatorTheme: const ProgressIndicatorThemeData(
-    color: Color(0xFFFFB385), // Light orange
+    color: Color.fromARGB(255, 251, 249, 248), // Light orange
   ),
 ),
       initialRoute: '/splash',
@@ -59,6 +62,8 @@ class StreaklyApp extends StatelessWidget {
         '/challenges': (context) => const MainNavigationScreen(initialIndex: 2),
         '/profile': (context) => const ProfileScreen(),
         '/settings': (context) => const SettingsScreen(),
+        '/social': (context) => const SocialScreen(),
+        '/streak': (contex)=>const StreakScreen(),
       },
     );
   }

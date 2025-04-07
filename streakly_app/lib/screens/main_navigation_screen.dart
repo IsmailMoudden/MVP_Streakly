@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'stats_screen.dart';
 import 'challenges_screen.dart';
-import '../widgets/gradient_flame_icon.dart'; // Import the flame icon widget
+import 'social_screen.dart';
+import '../widgets/gradient_flame_icon.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   final int initialIndex;
@@ -26,6 +27,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const StatsScreen(),
     const HomeScreen(),
     const ChallengesScreen(),
+    const SocialScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -37,25 +39,51 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.insert_chart),
-            label: 'Stats',
+      backgroundColor: const Color(0xFFF9F9FB),
+      body: SafeArea(child: _screens[_selectedIndex]),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_events),
-            label: 'Challenges',
-          ),
-        ],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 12,
+              offset: const Offset(0, -1),
+            )
+          ],
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.orange.shade400,
+          unselectedItemColor: Colors.grey.shade400,
+          elevation: 0,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          showUnselectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.insert_chart_outlined),
+              label: 'Stats',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.emoji_events_outlined),
+              label: 'Challenges',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people_outline),
+              label: 'Social',
+            ),
+          ],
+        ),
       ),
     );
   }

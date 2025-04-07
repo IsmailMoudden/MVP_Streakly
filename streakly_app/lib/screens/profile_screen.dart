@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
       ],
     );
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,17 +33,18 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Text(
-              'John Doe',
+              'Spike',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 10, 10, 10),
               ),
             ),
-            Text(
-              '@johndoe',
+            const Text(
+              '@spikeisma',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.grey.shade400,
+                color: const Color.fromARGB(255, 234, 144, 8),
               ),
             ),
             const SizedBox(height: 24),
@@ -55,14 +56,14 @@ class ProfileScreen extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 1,
-                    color: Colors.grey.shade800,
+                    color: Colors.white,
                     margin: const EdgeInsets.symmetric(horizontal: 24),
                   ),
                   _buildStatisticItem('Streaks', '156 days'),
                   Container(
                     height: 40,
                     width: 1,
-                    color: Colors.grey.shade800,
+                    color: Colors.white,
                     margin: const EdgeInsets.symmetric(horizontal: 24),
                   ),
                   _buildStatisticItem('Friends', '24'),
@@ -83,7 +84,12 @@ class ProfileScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: const Text('Edit Profile'),
+                      child: const Text(
+                      'Edit Profile',
+                       style: TextStyle(
+                       fontSize: 16,
+                       color: Color.fromARGB(255, 245, 243, 240),
+              ),),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -91,6 +97,7 @@ class ProfileScreen extends StatelessWidget {
                     child: OutlinedButton(
                       onPressed: () {},
                       style: OutlinedButton.styleFrom(
+                        backgroundColor: Colors.orange.shade300,
                         foregroundColor: Colors.white,
                         side: const BorderSide(color: Colors.white),
                         shape: RoundedRectangleBorder(
@@ -104,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -120,7 +127,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 16),
             _buildAchievementsList(),
             const SizedBox(height: 24),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -143,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Activity History',
                       style: TextStyle(
                         fontSize: 18,
@@ -152,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('See all'),
+                      child: const Text('See all'),
                     ),
                   ],
                 ),
@@ -201,7 +208,7 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             title,
-            style: TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 12),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
           ),
@@ -227,7 +234,7 @@ class ProfileScreen extends StatelessWidget {
   
   Widget _buildStreakItem(String title, String duration, double progress) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -252,15 +259,15 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               duration,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
-                color: Colors.grey.shade400,
+                color: Color.fromARGB(255, 250, 247, 247),
               ),
             ),
             const SizedBox(height: 12),
             LinearProgressIndicator(
               value: progress,
-              backgroundColor: Colors.grey.shade800,
+              backgroundColor: const Color.fromARGB(255, 245, 244, 244),
               valueColor: AlwaysStoppedAnimation<Color>(Colors.orange.shade300),
             ),
           ],
@@ -284,7 +291,7 @@ class ProfileScreen extends StatelessWidget {
   
   Widget _buildActivityItem(String activity, String timeAgo) {
     return Card(
-      color: Colors.grey.shade900,
+      color: const Color.fromARGB(255, 249, 247, 247),
       margin: const EdgeInsets.only(bottom: 12),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -294,7 +301,7 @@ class ProfileScreen extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: Colors.orange.shade900.withOpacity(0.3),
+                color: Color.fromARGB(255, 219, 117, 63).withOpacity(0.3),
                 shape: BoxShape.circle,
               ),
               child: Icon(Icons.check_circle, color: Colors.orange.shade300),

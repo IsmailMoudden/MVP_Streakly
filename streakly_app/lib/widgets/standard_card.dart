@@ -22,8 +22,8 @@ class StandardCard extends StatelessWidget {
         color: backgroundColor ?? Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          BoxShadow(
-            color: const Color(0x33FF8C42), // same light orange shadow as HomeScreen
+          const BoxShadow(
+            color: Color.fromARGB(69, 237, 236, 234), // same light orange shadow as HomeScreen
             offset: const Offset(0, 4),
             blurRadius: 8,
           ),

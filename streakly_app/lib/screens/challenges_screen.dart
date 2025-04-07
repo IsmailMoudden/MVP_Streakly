@@ -31,6 +31,7 @@ class ChallengesScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Header and search
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -65,14 +66,15 @@ class ChallengesScreen extends StatelessWidget {
               ],
             ),
           ),
+          // List of challenge items
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               children: [
-                _buildChallengeItem('Name', 'Progress', '7:00 pm'),
-                _buildChallengeItem('Name', 'Progress', '10:00 am'),
-                _buildChallengeItem('Name', 'Progress', '7:00 pm'),
-                _buildChallengeItem('Name', 'Progress', '6:00 pm'),
+                _buildChallengeItem(context, 'Drink Water', 'In Progress', '7:00 pm'),
+                _buildChallengeItem(context, 'Meditation', 'Completed', '7:00 am'),
+                _buildChallengeItem(context, 'Read', 'In Progress', '10:00 pm'),
+                _buildChallengeItem(context, 'Morning Run', 'In Progress', '6:00 pm'),
               ],
             ),
           ),
@@ -81,52 +83,60 @@ class ChallengesScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildChallengeItem(String title, String status, String time) {
-    return Card(
-      color: Colors.white,
-      margin: const EdgeInsets.only(bottom: 12),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.orange.shade900.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8),
+  Widget _buildChallengeItem(BuildContext context, String title, String status, String time) {
+    return InkWell(
+      onTap: () {
+        // Navigate to the streak page with challenge title as argument
+        Navigator.pushNamed(context, '/streak', arguments: title);
+      },
+      child: Card(
+        surfaceTintColor: Colors.white,
+        color: Colors.white,
+        margin: const EdgeInsets.only(bottom: 12),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.orange.shade900.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Icon(Icons.emoji_events, color: Colors.orange.shade300),
               ),
-              padding: const EdgeInsets.all(8),
-              child: Icon(Icons.emoji_events, color: Colors.orange.shade300),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Color(0xFF2D3142),
+                      ),
                     ),
-                  ),
-                  Text(
-                    status,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                    Text(
+                      status,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Color(0xFF7D8597),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Text(
-              time,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
+              Text(
+                time,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

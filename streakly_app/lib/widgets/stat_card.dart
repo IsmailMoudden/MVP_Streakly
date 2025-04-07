@@ -15,7 +15,7 @@ class StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).cardColor, // Secondary Background
+      color: Theme.of(context).cardColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -28,7 +28,7 @@ class StatCard extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.bodyText1?.copyWith(
                     fontSize: 14,
-                    color: Theme.of(context).accentColor, // Gold-Orange
+                    color: Theme.of(context).accentColor, 
                   ),
             ),
             const SizedBox(height: 8),
@@ -44,7 +44,7 @@ class StatCard extends StatelessWidget {
               subtitle,
               style: Theme.of(context).textTheme.bodyText2?.copyWith(
                     fontSize: 12,
-                    color: Colors.grey,
+                    color: const Color.fromARGB(255, 246, 244, 244),
                   ),
             ),
           ],

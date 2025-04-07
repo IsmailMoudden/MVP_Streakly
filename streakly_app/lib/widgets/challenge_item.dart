@@ -53,7 +53,7 @@ class ChallengeItem extends StatelessWidget {
               LinearProgressIndicator(
                 value: challenge.progress,
                 backgroundColor: Colors.grey.shade800,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.orange.shade300),
+                valueColor: AlwaysStoppedAnimation<Color>(const Color.fromARGB(255, 238, 236, 234)),
               ),
             ],
           ),
