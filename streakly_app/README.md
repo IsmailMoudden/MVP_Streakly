@@ -1,69 +1,60 @@
-# Streakly App
+# Streakly MVP
 
-Streakly is a Flutter application designed to help users track their challenges and statistics in a user-friendly interface. This README provides an overview of the project structure, setup instructions, and usage guidelines.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-3.0+-blue.svg)](https://dart.dev/)
 
-## Project Structure
+## Screenshots
 
-The project is organized as follows:
+| Home Screen | Challenge Screen | Stats Screen |
+|:-----------:|:----------------:|:------------:|
+| ![Home](assets/images/image.png) | ![Challenge](assets/images/image\ copy.png) | ![Stats](assets/images/image\ copy\ 2.png) |
 
+Ce dépôt contient le code source du MVP de Streakly, une application de suivi de challenges et d'habitudes.
+
+## ⚠️ Statut : MVP (Minimum Viable Product)
+Ce projet est une première version fonctionnelle, destinée à valider les concepts et l'expérience utilisateur. Il ne s'agit pas d'une version finale. Plusieurs fonctionnalités et optimisations sont prévues pour les prochaines itérations (voir plus bas).
+
+## Technologies utilisées
+- **Flutter** (Dart) : Framework principal pour le développement multiplateforme (iOS, Android, Web, Desktop)
+- **Material Design** : Pour l'UI/UX
+- **Architecture modulaire** : Séparation claire entre modèles, écrans, widgets, etc.
+- **Gestion d'état** : (À préciser selon le code, ex: Provider, Riverpod, etc. — à compléter dans la doc technique)
+
+## Structure du projet
 ```
 streakly_app/
-├── lib/
-│   ├── main.dart                     # Entry point of the application
-│   ├── app.dart                      # Application configuration
-│   ├── models/                       # Data models
-│   │   └── challenge.dart            # Model for challenges
-│   ├── screens/                      # Application screens
-│   │   ├── splash_screen.dart        # Splash screen
-│   │   ├── auth/
-│   │   │   └── sign_in_screen.dart   # Sign-in screen
-│   │   ├── main_navigation_screen.dart # Main navigation screen
-│   │   ├── home_screen.dart          # Home screen
-│   │   ├── stats_screen.dart         # Statistics screen
-│   │   ├── challenges_screen.dart    # Challenges screen
-│   │   ├── profile_screen.dart       # Profile screen
-│   │   └── settings_screen.dart      # Settings screen
-│   └── widgets/                      # Reusable widgets
-│       ├── challenge_item.dart       # Widget for displaying a challenge
-│       ├── stat_card.dart            # Widget for displaying statistics
-│       └── charts/
-│           └── line_chart_painter.dart # Line chart painter
-├── pubspec.yaml                      # Project dependencies and settings
-├── analysis_options.yaml             # Dart analysis options
-└── README.md                         # Project documentation
+  lib/
+    models/         # Modèles de données (ex: Challenge)
+    screens/        # Écrans principaux de l'app (auth, home, profil, etc.)
+    widgets/        # Widgets réutilisables et composants graphiques
+    ...
+  assets/           # Images, icônes, ressources statiques
+  test/             # Tests unitaires et widgets
+  doc/              # Documentation technique détaillée (créée prochainement)
 ```
 
-## Setup Instructions
+## Documentation technique
+Un dossier `doc/` sera créé pour fournir une documentation détaillée **fichier par fichier**. Chaque aspect technique (modèles, navigation, widgets, logique métier, etc.) y sera expliqué par des experts.
 
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd streakly_app
-   ```
+## Futures évolutions prévues
+- Authentification avancée (OAuth, biométrie, etc.)
+- Notifications push
+- Synchronisation cloud et sauvegarde
+- Statistiques avancées et visualisations
+- Mode sombre/clair dynamique
+- Internationalisation (i18n)
+- Tests automatisés plus complets
+- Optimisations de performance
+- Accessibilité renforcée
 
-2. **Install dependencies:**
-   ```
-   flutter pub get
-   ```
+## Lancer le projet
+```sh
+cd streakly_app
+flutter pub get
+flutter run
+```
 
-3. **Run the application:**
-   ```
-   flutter run
-   ```
+---
 
-## Usage Guidelines
-
-- The application starts with a splash screen, followed by the main navigation screen.
-- Users can sign in through the authentication screen.
-- The home screen displays ongoing challenges and allows users to add new challenges.
-- The statistics screen provides insights into user performance.
-- Users can view available challenges and their profiles through dedicated screens.
-- Settings can be modified in the settings screen.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
+Pour toute question ou contribution, consultez la documentation dans le dossier `doc/` (à venir) ou ouvrez une issue.

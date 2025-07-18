@@ -16,7 +16,8 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Row(
               children: [
-                Icon(Icons.local_fire_department, color: Colors.orange.shade400),
+                Icon(Icons.local_fire_department,
+                    color: Colors.orange.shade400),
                 const SizedBox(width: 8),
                 const Text(
                   'Streakly',
@@ -24,7 +25,8 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 const CircleAvatar(
-                  backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=8'),
+                  backgroundImage:
+                      NetworkImage('https://i.pravatar.cc/150?img=8'),
                   radius: 18,
                 ),
               ],
@@ -97,7 +99,8 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _dailyChallenge(String title, String subtitle, String time, double progress) {
+  Widget _dailyChallenge(
+      String title, String subtitle, String time, double progress) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -118,12 +121,15 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(title,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              Text(time, style: const TextStyle(fontSize: 14, color: Colors.grey)),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 16)),
+              Text(time,
+                  style: const TextStyle(fontSize: 14, color: Colors.grey)),
             ],
           ),
           const SizedBox(height: 6),
-          Text(subtitle, style: const TextStyle(fontSize: 14, color: Colors.grey)),
+          Text(subtitle,
+              style: const TextStyle(fontSize: 14, color: Colors.grey)),
           const SizedBox(height: 12),
           LinearProgressIndicator(
             value: progress,
@@ -164,10 +170,12 @@ class HomeScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+            Text(label,
+                style: const TextStyle(fontSize: 12, color: Colors.grey)),
             const SizedBox(height: 4),
             Text(value,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
