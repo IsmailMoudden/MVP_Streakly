@@ -17,7 +17,7 @@ We take the security of Streakly seriously. If you believe you have found a secu
 ### Reporting Process
 
 1. **Do not create a public GitHub issue** for the vulnerability
-2. **Email us directly** at [INSERT SECURITY EMAIL] with the subject line: `[SECURITY] Vulnerability Report - Streakly`
+2. **Email us directly** at ismail.moudden1@gmail.com with the subject line: `[SECURITY] Vulnerability Report - Streakly`
 3. **Include detailed information** about the vulnerability:
    - Description of the vulnerability
    - Steps to reproduce the issue
@@ -92,7 +92,6 @@ Security updates will be released as patch versions (e.g., 1.0.1, 1.0.2) and wil
 ### Contact Information
 
 - **Security Email**: ismail.moudden1@gmail.com
-- **PGP Key**: [INSERT PGP KEY IF AVAILABLE]
 - **Response Time**: 48 hours for initial response
 
 ### Acknowledgments
